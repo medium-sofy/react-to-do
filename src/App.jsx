@@ -18,14 +18,16 @@ function App() {
     setTodos(newTodoList);
   }
 
-  function handleEditTodo() {
-    
+  function handleEditTodo(index) {
+    const valueToBeEdited = todos[index]
+    setTodoValue(valueToBeEdited)
+    handleDeleteTodo(index)
   }
 
   return (
     <> 
       <ToDoInput todoValue={todoValue} setTodoValue={setTodoValue}handleAddTodos={handleAddTodos} />
-      <ToDoList handleDeleteTodo={handleDeleteTodo} todos={todos} />
+      <ToDoList handleDeleteTodo={handleDeleteTodo} handleEditTodo={handleEditTodo}todos={todos} />
     </>
   );
 }
